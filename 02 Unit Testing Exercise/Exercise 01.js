@@ -7,17 +7,17 @@ function httpRequest(request) {
 
 	let messageReg = /^([^<>\\&'"]*)$/g;
 
-	if (!methods.includes(request.method)) {
+	if (!request.hasOwnProperty('method') || !methods.includes(request.method)) {
 		throw new Error('Invalid request header: Invalid Method!');
 	}
-	if (!request.uri.match(uriReg)) {
+	if (!request.hasOwnProperty('uri') ||!request.uri.match(uriReg)) {
 		throw new Error('Invalid request header: Invalid URI!');
 	}
-	if (!versions.includes(request.version)) {
+	if (!request.hasOwnProperty('version') ||!versions.includes(request.version)) {
 		throw new Error('Invalid request header: Invalid Version!');
 	}
 
-	if (!request.message.match(messageReg)) {
+	if (!request.hasOwnProperty('message') ||!request.message.match(messageReg)) {
 		throw new Error('Invalid request header: Invalid Message!');
 	}
 	return request;
