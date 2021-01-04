@@ -5,7 +5,11 @@ function attachEvents() {
 	let ul = document.getElementById('phonebook');
 
 	btnLoad.addEventListener('click', load);
+	btnCreate.addEventListener('click', create);
+	
+	
 	function load() {
+		ul.innerHTML = '';
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
@@ -15,9 +19,10 @@ function attachEvents() {
 					let deleteBtn = document.createElement('button');
 					let deleteURL = `https://phonebook-nakov.firebaseio.com/phonebook/${key}.json`;
 					deleteBtn.textContent = 'Delete';
+					deleteBtn.style.marginLeft = "10px";
 					deleteBtn.addEventListener('click', () => {
 						fetch(deleteURL, { method: "DELETE" });
-						ul.innerHTML='';
+						ul.innerHTML = '';
 						setTimeout(load, 200);
 					})
 
@@ -28,7 +33,7 @@ function attachEvents() {
 			});
 	}
 
-	btnCreate.addEventListener('click', create);
+	
 
 	function create() {
 		let person = document.getElementById('person');
