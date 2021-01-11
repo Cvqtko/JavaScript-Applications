@@ -76,6 +76,10 @@ label, input {
 	margin: 0 auto;
 }
 
+#edit-form {
+	display: none;
+}
+
 form input {
 	margin-bottom: 1%;
 	width: 25%;
