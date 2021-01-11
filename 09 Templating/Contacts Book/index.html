@@ -41,6 +41,18 @@
 		const contactsHtml = contacts.map(contact=>contactTemplate(contact)).join('');
 		
 		contactsElement.innerHTML = contactsHtml;
+		
+		contactsElement.addEventListener('click', e=>{
+			if(!Array.from(e.target.classList).includes('detailsBtn')){
+				return;
+			}
+			let detailsElement = e.target.parentElement.querySelector('.details');
+			if(detailsElement.style.display == 'block'){
+				detailsElement.style.display = 'none';
+			}else{
+				detailsElement.style.display = 'block';
+			}
+		})
 	</script>
 </body>
 
