@@ -1,9 +1,9 @@
 const contacts = [
     {
         id: 1,
-        name: "John",
-        phoneNumber: "0847759632",
-        email: "john@john.com"
+        name: "Elka",
+        phoneNumber: "0879891415",
+        email: "elka@actavis.com"
     },
     {
         id: 2,
